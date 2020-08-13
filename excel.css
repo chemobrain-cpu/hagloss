@@ -1,0 +1,109 @@
+
+            /*the document body section   */
+        body{
+                background-color:white;
+
+                overflow-x: scroll;
+            }
+            /* the header section*/
+        header{
+            background-color:grey;
+            text-align:center;
+            color:white;
+            padding:0.5%;
+            margin-bottom:6%;
+            border-radius:5px;
+            width:100%;
+            display:none;
+        }
+    
+
+        /*styling the main section*/
+    
+        #main{
+            width:100%;
+            overflow-x: scroll;
+        
+            margin-top:3%;
+        }
+        .table th{
+            background-color: black;
+        }
+        #main .table{
+            text-align:center;
+            width:100%;
+            border:1px solid rgb(0,0,0,0.4);
+            margin:0% auto 0% auto;
+            border-collapse: collapse;
+            
+            
+        }
+        #main .table tr{
+            margin:1%;
+        }
+        #main .table tr th{
+            background-color:rgb(37, 36, 36);
+            color:white;
+            font-weight:bolder;
+            font-size:70%;
+            border-radius:5px;
+            
+            
+        }
+        #main .table tr td{
+            border-bottom: 1px solid rgba(0,0,0,0.3);
+        }
+        #main .table tr td:hover{
+            background-color:rgba(0,0,0,0.3)
+        }
+        #main .table tr th:hover{
+            border-radius:0px;
+            box-shadow: 2px 3px 3px 3px black;
+        }
+        .add-items{
+          text-align:center;
+          background-color: grey;
+          width:100%;
+          padding-bottom:1%;
+          margin:3% auto 0% auto;
+          display:none;
+        
+        }
+        .add-items input{
+            width:12%;
+            height:30px;
+            border-radius:5px;
+          
+            
+        }
+
+        .delete-items{
+          display:none;
+          background-color: grey;
+          width:100%;
+          padding-bottom:1%;
+          margin:3% auto 0% auto;
+          
+        
+        }
+        .delete-items input{
+            width:12%;
+            height:30px;
+            border-radius:5px;
+        }
+          
+        button.delete-text{
+              outline:none;
+              border:none;
+              background-color: brown;
+          }
+    
+        .hide{
+            display:none;
+        }
+        .show{
+            display:block
+        }
+
+        
+    

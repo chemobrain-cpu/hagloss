@@ -1,0 +1,36 @@
+<%-include("includes/nav.ejs")  %> 
+<link rel="stylesheet" href="addItem.css">
+
+  <div class="add-items ">
+          
+    
+        <form  method="POST" action="/addItem">
+            <label>Name:</label><br>
+            <input type="text" placeholder="id" name="id"><br><br>
+            <label>Car Owner:</label><br>
+
+            <input type="text" placeholder="carowner" name="carowner"><br><br>
+            <label>Tracker No:</label><br>
+            <input type="text" placeholder="trackerNo" name="trackerNo"><br><br>
+            <label>Location:</label><br>
+
+            <input type="text" placeholder="location" name="location"><br><br>
+            <label>Phone Number:</label><br>
+
+            <input type="text" placeholder="ownerPhoneNo" name="ownerPhoneNo"><br><br>
+            <label>Car Reg No:</label><br>
+            <input type="text" placeholder="carReg" name="carReg"><br><br>
+            <label>Name Of Car:</label><br>
+
+            <input type="text" placeholder="car" name="car"><br><br>
+            
+            <button>submit</button>
+
+      
+        </form>
+        
+        
+    
+</div>
+
+<%-include("includes/footer")  %> 

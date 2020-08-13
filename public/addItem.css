@@ -1,0 +1,13 @@
+body{
+    background-color: rgb(34, 33, 33);
+}
+.add-items{
+    background-color: rgb(34, 33, 33);
+    padding-left: 5%;
+    padding-right:0%;
+    border-radius:5px;
+}
+.add-items input{
+    height:12px;
+    border-radius:5px;
+}
