@@ -1,8 +1,34 @@
-<%-include("includes/nav.ejs")  %> 
+<%-include("includes/nav")  %> 
+<main id = "main">
+    
+<table class="table">
+  <caption>List Of Cars Installation Customers</caption>
 
-<div class="searchresult">
+<tr  >
+<th class="">sr no</th>
+<th   class="" >car<br>keke owner</th>
+<th  class="">tracker sim<br>no</th>
+<th  class="">location</th>
+<th  class=""> owner phone<br>no</th>
+<th  class="">vehicle/keke<br>reg</th>
+<th  class="">vehicle/keke</th>
 
-</div>
+</tr>
+<% for(let val of data){ %>
+  <tr>
+    <td class="sr-no"><input  placeholder="sr no "value="<%= val.srNo%>"></td>
+  <td   class="car-owner" ><input  placeholder="Car/Keke Owner "value ="<%=val.carOwner%>"></td>
+  <td  class="sim-no"><input  placeholder="Tracker Sim No"value="<%=val.simNo %>""></td>
+  <td  class="location"><input  placeholder="Location"value="<%= val.location %>"></td>
+  <td  class="phone-number"><input  placeholder="Phone Number"value="<%=val.phoneNumber%>""></td>
+  <td  class="reg"><input  placeholder="ReG"value="<%=val.reg %>"></td>
+  <td  class="vehicle"><input  placeholder="Vehicle name" value="<%= val.vehicle%>"></td>
+  
+  </tr>
+
+<% } %>
 
 
+</table>
+</main>
 <%-include("includes/footer")  %> 

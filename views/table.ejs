@@ -17,7 +17,7 @@
 <% for(let val of data){ %>
   <tr>
     <td class="sr-no"><input  placeholder="sr no "value="<%= val.srNo%>"></td>
-  <td   class="car-owner" ><input  placeholder="Car/Keke Owner "value ="<%= data.carOwner%>"></td>
+  <td   class="car-owner" ><input  placeholder="Car/Keke Owner "value ="<%=val.carOwner%>"></td>
   <td  class="sim-no"><input  placeholder="Tracker Sim No"value="<%=val.simNo %>""></td>
   <td  class="location"><input  placeholder="Location"value="<%= val.location %>"></td>
   <td  class="phone-number"><input  placeholder="Phone Number"value="<%=val.phoneNumber%>""></td>

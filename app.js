@@ -20,6 +20,7 @@ app.get("/table",(req,res)=>{
 
 
     Store.get_data((data)=>{
+        
         res.render("table.ejs",{data:data})
     })
    
@@ -36,15 +37,15 @@ app.get("/AddItem",(req,res)=>{
 
 app.post("/AddItem",(req,res)=>{
     //add new item to the 
-    console.log(req.body)
+
     let data = {
-        "srNo":"2",
-        "carOwner":2,
-        "simNo":4,
-        "location":5,
-        "phoneNumber":555,
-        "reg":8,
-        "vehicle":"yuuu"
+        "srNo":req.body.id,
+        "carOwner":req.body.carowner,
+        "simNo":req.body.trackerNo,
+        "location":req.body.location,
+        "phoneNumber":req.body.ownerPhoneNo,
+        "reg":req.body.carReg,
+        "vehicle":req.body.car
     
     }
     Store.add_data(data)
@@ -55,9 +56,12 @@ app.post("/AddItem",(req,res)=>{
 
 app.post("/deleteItem",(req,res)=>{
     console.log(req.body.id)
-    //delete specific item from database and return the table
-    res.redirect("/table")
+    Store.delete_data(req.body.id,()=>{
+        res.redirect("/table")
 
+    })
+    //delete specific item from database and return the table
+    
 })
 app.get("/deleteItem",(req,res)=>{
     //delete specific item from database and return the table
@@ -66,7 +70,12 @@ app.get("/deleteItem",(req,res)=>{
 })
 app.post("/searchItem",(req,res)=>{
     //delete specific item from database and return the table
-    res.render("searchresult")
+    Store.search(req.body.id,(data)=>{
+        console.log(data)
+        res.render("searchresult",{data:[data]})
+
+    })
+ 
 
 })
 

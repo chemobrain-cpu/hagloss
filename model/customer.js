@@ -7,7 +7,7 @@ module.exports = class Customers{
     static get_data(cb){
         fs.readFile(file_path,(err,data)=>{
     if(!err){
-        cb(JSON.parse(data))
+        cb(JSON.parse(data)) 
     } 
 })
         //read data from the file
@@ -20,9 +20,10 @@ module.exports = class Customers{
         //add the new item to the data
         //write the whole data back to storage
         fs.readFile(file_path,(err,data)=>{
-            let product = []
+            let product
             if(!err){
-                product = JSON.parse(data)
+                  product = JSON.parse(data)
+        
                 product.push(item)
                 fs.writeFile(file_path,JSON.stringify(product),(err)=>{
                     if(!err){
@@ -32,36 +33,55 @@ module.exports = class Customers{
             } 
         })
     }
-    static delete_data(id){
+    static delete_data(id,cb){
         fs.readFile(file_path,(err,data)=>{
             let product = []
             let index
             if(!err){
                 product = JSON.parse(data)
-                let index = product.findIndex(e=>{
-                    e.id == id
+                product.forEach(element => {
+                    if(element.srNo === id || element.carOwner === id || element.phoneNumber===id || element.simNo==id || element.location==id || element.vehicle == id || element.reg == id){
+                        index = product.indexOf(element)
+                    }
+                    
+                });
+                product.splice(index,1)
+                
+                //carOwner simNo phoneNumber
+    
+                //push to json file
+                fs.writeFile(file_path,JSON.stringify(product),(err)=>{
+                    if(err){
+                        console.log("an error occured")
+                    }
+
                 })
-                if(index == -1){
-                    index = product.findIndex(e=>{
-                        e.phoneNumber == id
-                    })
-                    if(index == -1){
-                        index = product.findIndex(e=>{
-                            e.carOwner == id
-                        })
-
-
-                    }
-                    if(index){
-                        product.splice(index,1)
-                    }
-
-                }
-
+                
                 
 
             }
         })
+        cb()
+       
+    }
+    static search(id,cb){
+        fs.readFile(file_path,(err,data)=>{
+            let product = []
+            let index
+            if(!err){
+                product = JSON.parse(data)
+                let new_product = product.forEach(element => {
+                    if(element.srNo === id || element.carOwner === id || element.phoneNumber===id || element.simNo==id || element.location==id || element.vehicle == id || element.reg == id){
+                        console.log(element)
+                        cb(element)
+                        
+                    }
+                    
+                });
+                
+            }
+        })
+       
 
         
         //read the data from the storage
@@ -70,11 +90,8 @@ module.exports = class Customers{
 
 
     }
-    static modify_data(item){
-        //read data from the storage
-        //replace the specific data
-        //return data back to the storage
+       
 
 
-    }
+    
 }
